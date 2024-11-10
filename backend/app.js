@@ -1,27 +1,28 @@
 const express = require("express");
 require("dotenv").config();
-const cors = require("cors");
+// const cors = require("cors");
 require("./models/db");
 
 const app = express();
 
 //built-in middleware
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
-const PORT =  5000;
+const PORT = 5000;
 
 app.use(express.json());
-//required userRoter 
-const userRouter = require('./routes/users');
-app.use('/user',userRouter);
-//required roleRoter 
-const roleRoter = require('./routes/roles');
+//required userRoter
+const userRouter = require("./routes/users");
+app.use("/user", userRouter);
+//required roleRoter
 
-app.use('/role' , roleRoter);
+const roleRoter = require("./routes/roles");
 
-
-
+app.use("/role", roleRoter);
+//
+const tour_packagesRouter = require("./routes/createTour_Packages");
+app.use('/Tour',tour_packagesRouter);
 app.listen(PORT, () => {
   console.log(`Server is run at https://localhost:${PORT}`);
 });
