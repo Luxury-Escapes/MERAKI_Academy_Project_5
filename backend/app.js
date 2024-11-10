@@ -20,8 +20,14 @@ app.use('/user',userRouter);
 const roleRoter = require('./routes/roles');
 
 app.use('/role' , roleRoter);
+
+// 
+const flightsRouter= require("./routes/flights");
+app.use("/flights",flightsRouter)
+
 const tour_packagesRouter = require('./routes/tourPagesRoute');
 app.use('/Tour',tour_packagesRouter);
+
 
 app.listen(PORT, () => {
   console.log(`Server is run at https://localhost:${PORT}`);
