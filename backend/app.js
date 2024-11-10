@@ -1,6 +1,7 @@
 const express = require("express");
-require("dotenv").config();
 const cors = require("cors");
+require("dotenv").config();
+
 require("./models/db");
 
 const app = express();
@@ -19,7 +20,6 @@ app.use('/user',userRouter);
 const roleRoter = require('./routes/roles');
 
 app.use('/role' , roleRoter);
-
 
 
 app.listen(PORT, () => {
