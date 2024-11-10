@@ -1,6 +1,9 @@
 const express = require("express");
+
+const cors = require("cors");
 require("dotenv").config();
-// const cors = require("cors");
+
+
 require("./models/db");
 
 const app = express();
@@ -17,12 +20,14 @@ const userRouter = require("./routes/users");
 app.use("/user", userRouter);
 //required roleRoter
 
+
 const roleRoter = require("./routes/roles");
 
 app.use("/role", roleRoter);
 //
 const tour_packagesRouter = require("./routes/createTour_Packages");
 app.use('/Tour',tour_packagesRouter);
+
 app.listen(PORT, () => {
   console.log(`Server is run at https://localhost:${PORT}`);
 });

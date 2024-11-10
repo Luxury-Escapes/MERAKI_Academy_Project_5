@@ -1,7 +1,9 @@
 const db = require("../models/db");
 const jwt = require("jsonwebtoken");
+
 // require('dotenv').config();
 const bcrypt = require("bcryptjs");
+
 
 //This function To create new user :
 const register = async (req, res) => {
@@ -42,6 +44,7 @@ const login = async (req, res) => {
     const user = result.row[0];
     if (!user) {
       return res.status(403).json({
+
         success: false,
         message: "Invalid email or password",
       });
@@ -49,10 +52,12 @@ const login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(403).json({
+
         success: false,
         message: "Invalid email or password",
       });
     }
+
     const payload = {
       userId: user.id,
       role: user.role_id,
