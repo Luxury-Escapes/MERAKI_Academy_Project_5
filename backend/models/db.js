@@ -6,7 +6,7 @@ const pool = new Pool({
 pool
   .connect()
   .then((res) => {
-    console.log(`DB connected to ${res.database}`);
+    console.log(`DB connected `);
   })
   .catch((err) => {
     console.log(err);
